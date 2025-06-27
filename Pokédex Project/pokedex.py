@@ -1,4 +1,3 @@
-import json
 import requests as rq
 try:
     import vlc
@@ -7,7 +6,6 @@ except FileNotFoundError:
 import tkinter as tk
 from PIL import ImageTk, Image
 from io import BytesIO
-import os
 from otherwin import toggle_secondary as togl
 
 labelnt_helper=""
@@ -62,7 +60,7 @@ def search_pok():
         weig = data["weight"] / 10 #kilograms
         image = data["sprites"]["other"]["official-artwork"]["front_default"]
 
-        infolist = [modname, typem, f"{heig}m", f"{weig}kg"]
+        infolist = [modname, typem, f"{heig}M", f"{weig}KG"]
         print(infolist)
         infolbl.config(text=infolist[infoidx])
 
@@ -125,23 +123,6 @@ def toglee(event=None):
         decor2.create_rectangle(55, 0, 100, 5, fill="#202020", width=2)
         decor2.create_oval(99, 59, 74, 34, fill="#ba9609", width=2)
         # test (182, 256) (282, 261)
-
-        def update_position(event):
-            # Update the label with current mouse coordinates
-            position_label.config(text=f"Mouse Position: x={event.x}, y={event.y}")
-
-        def main():
-            global position_label
-            position_label = tk.Label(root2c, text="Move the mouse inside the window", font=("Arial", 12))
-            position_label.place(x=0, y=400)
-
-            # Bind motion to the entire window
-            root2c.bind("<Motion>", update_position)
-
-            root2c.mainloop()
-
-        if __name__ == "__main__":
-            main()
         # test
 
 
